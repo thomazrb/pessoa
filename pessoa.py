@@ -38,6 +38,17 @@ class Pessoa:
         else:
             print(f'{self.nome} possui esta idade!')
 
+class Atleta(Pessoa):
+    def __init__(self, nome, idade, altura, peso, esporte, vitorias):
+        super().__init__(nome, idade, altura, peso)
+        self.esporte = esporte
+        self.vitorias = vitorias
+    
+    def conquistas(self):
+        print(f'{self.nome} já conquistou {self.vitorias} vitórias no(a) {self.esporte}!')
+
+    def apresentar(self):
+        print(f'Muito prazer! Eu me chamo {self.nome}, tenho {self.idade} anos de idade e sou um(a) atleta.')
 # Testes:
 
 pessoa1=Pessoa('Zezinho', 21 , 1.78, 33.6)
@@ -50,7 +61,7 @@ print(f"IMC: {pessoa1.imc():.1f}")
 print("Classificação:",pessoa1.imc_longo())
 pessoa1.compara_idade(21)
 
-
+print('---')
 
 pessoa2=Pessoa('Luizinho', 17, 1.63, 90.5)
 pessoa2.apresentar()
@@ -61,6 +72,11 @@ else:
 print(f"IMC: {pessoa2.imc():.1f}")
 print("Classificação:",pessoa2.imc_longo())
 pessoa2.compara_idade(16)
-
+print('---')
 
 pessoa1.compara_idade(pessoa2.idade)
+print('---')
+atleta1 = Atleta("Mariazinha", 25, 1.80, 55.0, "natação", 15)
+
+atleta1.apresentar()
+atleta1.conquistas()
